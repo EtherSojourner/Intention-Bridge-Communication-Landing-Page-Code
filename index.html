@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intention Bridge Communications | Mental Health Crisis De-escalation Training</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c5f5d;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00bcd4;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            color: white;
+            padding: 120px 0 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff7043;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 112, 67, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #f4511e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 112, 67, 0.6);
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #2c5f5d;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .expertise-card {
+            background: #f0f9f9;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0f2f1;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.15);
+        }
+
+        .expertise-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            border-radius: 50%;
+            margin: 0 auto 25px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.4rem;
+            color: #2c5f5d;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .expertise-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: #f0f9f9;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #2c5f5d;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .credentials {
+            margin-top: 2rem;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            color: #2c5f5d;
+        }
+
+        .credential-item::before {
+            content: '✓';
+            color: #00bcd4;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0, 188, 212, 0.2);
+            border: 4px solid white;
+        }
+
+        .profile-placeholder {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 188, 212, 0.2);
+            border: 4px solid white;
+            margin: 0 auto;
+        }
+
+        .profile-placeholder .initials {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Training Programs */
+        .programs {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .program-card {
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.05);
+            z-index: 1;
+        }
+
+        .program-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .program-card p {
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .program-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .program-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .program-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #ff7043;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #2c5f5d;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: #f0f9f9;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #e0f2f1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+        }
+
+        .contact-details h4 {
+            color: #2c5f5d;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c5f5d;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .profile-image, .profile-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+
+            .profile-placeholder .initials {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Intention Bridge Communications</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Training</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-subtitle">Former SERT Member • Mental Health Crisis Expert</div>
+                <h1>Mental Health Crisis De-escalation Training Specialist</h1>
+                <p class="hero-description">
+                    When mental health crises escalate, lives depend on the right response. Specialized de-escalation training for vulnerable populations – combining tactical expertise with compassionate, evidence-based mental health intervention.
+                </p>
+                <a href="#contact" class="cta-button">Schedule Free Crisis Assessment</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="expertise">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Specialized Crisis Intervention Expertise</h2>
+                <p class="section-subtitle">
+                    Uniquely combining SERT tactical experience with certified mental health crisis specialization
+                </p>
+            </div>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">🛡️</div>
+                    <h3>SERT Tactical Experience</h3>
+                    <p>Former Special Emergency Response Team member with extensive crisis intervention experience in high-stakes situations involving mental health emergencies.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-icon">🧠</div>
+                    <h3>Mental Health Crisis Specialization</h3>
+                    <p>Certified Mental Health First Aid instructor with specialized expertise in schizophrenia, bipolar disorder, autism, PTSD, and substance use emergencies.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-icon">⚖️</div>
+                    <h3>Regulatory Compliance Expert</h3>
+                    <p>Comprehensive knowledge of SB 553, CIT standards, and ADA accommodation protocols for mental health conditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Real-World Crisis Experience Meets Mental Health Expertise</h2>
+                    <p>
+                        I'm Wendi Wing, a Mental Health First Aid certified crisis intervention specialist with a unique background combining tactical law enforcement experience with specialized mental health training.
+                    </p>
+                    <p>
+                        As a former member of a Special Emergency Response Team (SERT), I've responded to some of the most challenging crisis situations involving individuals experiencing mental health emergencies, substance use crises, and complex behavioral challenges.
+                    </p>
+                    <p>
+                        This tactical experience, combined with my Mental Health First Aid certification, 12 years of martial arts training, and extensive work with vulnerable populations, gives me a deep understanding of what works in real-world crisis situations.
+                    </p>
+                    
+                    <div class="credentials">
+                        <div class="credential-item">Former SERT (Special Emergency Response Team) Member</div>
+                        <div class="credential-item">Mental Health First Aid Certified Instructor</div>
+                        <div class="credential-item">12+ Years Martial Arts Training & Discipline</div>
+                        <div class="credential-item">Extensive Experience with Vulnerable Populations</div>
+                        <div class="credential-item">Trauma-Informed Care Specialist</div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <div class="profile-placeholder">
+                        <div class="initials">WW</div>
+                        <div>Professional Headshot</div>
+                        <div style="font-size: 0.9rem; opacity: 0.8;">(Replace with your photo)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="programs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Premium Training Programs</h2>
+                <p class="section-subtitle">
+                    Specialized crisis intervention training designed for organizations serving vulnerable populations
+                </p>
+            </div>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-content">
+                        <h3>Crisis Intervention Specialist</h3>
+                        <p>Comprehensive mental health crisis response training for healthcare, law enforcement, and emergency services.</p>
+                        <ul class="program-features">
+                            <li>2-hour intensive training program</li>
+                            <li>Mental health condition recognition</li>
+                            <li>Trauma-informed de-escalation techniques</li>
+                            <li>Regulatory compliance certification</li>
+                            <li>60-day implementation support</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-content">
+                        <h3>Healthcare Compliance Program</h3>
+                        <p>SB 553 workplace violence prevention with specialized focus on behavioral health emergencies.</p>
+                        <ul class="program-features">
+                            <li>California SB 553 compliance training</li>
+                            <li>Staff safety protocols</li>
+                            <li>Patient outcome optimization</li>
+                            <li>Documentation systems</li>
+                            <li>Crisis response procedures</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-content">
+                        <h3>CIT Professional Development</h3>
+                        <p>Crisis Intervention Team training meeting federal standards with tactical and compassionate approaches.</p>
+                        <ul class="program-features">
+                            <li>Federal CIT standard curriculum</li>
+                            <li>Officer safety protocols</li>
+                            <li>Community relations building</li>
+                            <li>Mental health partnership development</li>
+                            <li>Ongoing coaching support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Crisis Response?</h2>
+            <p>Schedule your free 30-minute mental health crisis assessment consultation</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Schedule Your Free Crisis Assessment</h2>
+                <p class="section-subtitle">
+                    Discover how specialized de-escalation training can protect your team and improve outcomes for vulnerable populations
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>(707) 367-0282</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>wendinow@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🔗</div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/wendi-wing-bb642160</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 style="color: #2c5f5d; margin-bottom: 1.5rem;">What You'll Receive:</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li>✓ Crisis response capability assessment</li>
+                        <li>✓ Mental health training gap analysis</li>
+                        <li>✓ Regulatory compliance review</li>
+                        <li>✓ Customized training recommendation</li>
+                        <li>✓ Implementation timeline & ROI overview</li>
+                        <li>✓ Emergency consultation access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Intention Bridge Communications. All rights reserved.</p>
+            <p>Specialized training for teams serving vulnerable populations experiencing mental health crises.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'white';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

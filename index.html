@@ -453,6 +453,15 @@
             margin-bottom: 2rem;
         }
 
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
         .contact-icon {
             width: 50px;
             height: 50px;
@@ -472,6 +481,18 @@
 
         .contact-details p {
             color: #666;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
         }
 
         /* Footer */
@@ -707,19 +728,23 @@
                     </div>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>wendinow@gmail.com</p>
-                        </div>
+                        <a href="mailto:wendinow@gmail.com">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>wendinow@gmail.com</p>
+                            </div>
+                        </a>
                     </div>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">🔗</div>
-                        <div class="contact-details">
-                            <h4>LinkedIn</h4>
-                            <p>linkedin.com/in/wendi-wing-bb642160</p>
-                        </div>
+                        <a href="https://linkedin.com/in/wendi-wing-bb642160" target="_blank" rel="noopener noreferrer">
+                            <div class="contact-icon">🔗</div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <p>linkedin.com/in/wendi-wing-bb642160</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 

@@ -216,9 +216,9 @@
 
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr auto 1fr;
             gap: 4rem;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .about-text h2 {
@@ -257,6 +257,11 @@
 
         .about-image {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
 
         .profile-image {
@@ -381,6 +386,47 @@
             opacity: 0.9;
         }
 
+        /* Testimonials */
+        .testimonials {
+            margin-top: 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            position: relative;
+            margin: 0 auto;
+            max-width: 400px;
+            box-shadow: none;
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: #00bcd4;
+            position: absolute;
+            top: -10px;
+            left: -20px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-author {
+            text-align: right;
+            font-weight: 600;
+            color: #2c5f5d;
+            font-size: 1.1rem;
+        }
+
         /* Contact */
         .contact {
             padding: 80px 0;
@@ -407,6 +453,15 @@
             margin-bottom: 2rem;
         }
 
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
         .contact-icon {
             width: 50px;
             height: 50px;
@@ -426,6 +481,18 @@
 
         .contact-details p {
             color: #666;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
         }
 
         /* Footer */
@@ -450,6 +517,7 @@
             .about-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 2rem;
             }
 
             .contact-grid {
@@ -467,6 +535,11 @@
 
             .profile-placeholder .initials {
                 font-size: 3rem;
+            }
+
+            .testimonial-card {
+                max-width: 100%;
+                padding: 30px;
             }
         }
     </style>
@@ -557,6 +630,17 @@
                     <div><img src="https://i.imgur.com/B6brpfQ.png"></div>
                     </div>
                 </div>
+                
+                <div class="testimonials">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            Wendi and I worked together at a housing nonprofit serving people experiencing homelessness and housing instability. She was hired not long after I was, and seamlessly jumped into the work of supporting vulnerable individuals with the competence, self-efficacy, and compassion of someone with extensive training and experience. I learned that Wendi's diverse and rich career history made her a natural at working with all types of people. Wendi found success in her role through her expertise in navigating highly-sensitive situations, protecting her own and others' emotional and physical safety, and communicating with individuals at risk of deregulation and escalation. Trauma-informed care and de-escalation skills are crucial in the field of social work, and I feel so grateful to have grown in these areas through my close, on-the-ground collaboration with Wendi.
+                        </div>
+                        <div class="testimonial-author">
+                            — Siena E.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -644,19 +728,23 @@
                     </div>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>wendinow@gmail.com</p>
-                        </div>
+                        <a href="mailto:wendinow@gmail.com">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>wendinow@gmail.com</p>
+                            </div>
+                        </a>
                     </div>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">🔗</div>
-                        <div class="contact-details">
-                            <h4>LinkedIn</h4>
-                            <p>linkedin.com/in/wendi-wing-bb642160</p>
-                        </div>
+                        <a href="https://linkedin.com/in/wendi-wing-bb642160" target="_blank" rel="noopener noreferrer">
+                            <div class="contact-icon">🔗</div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <p>linkedin.com/in/wendi-wing-bb642160</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 
